@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/freeduck/helia-examples/issues"
   },
-  "homepage": "https://github.com/freeduck/helia-examples#readme"
+  "homepage": "https://github.com/freeduck/helia-examples#readme",
+  "dependencies": {
+    "helia": "^1.3.4"
+  }
 }
