@@ -1,7 +1,7 @@
 import { unixfs } from '@helia/unixfs';
 import { createHelia } from 'helia';
 import fs from 'fs';
-import {tmpdir} from 'os';
+import os from 'os';
 import Path from 'path';
 import { concat as uint8ArrayConcat } from 'uint8arrays/concat'
 
@@ -36,8 +36,8 @@ for await (const chunk of hfs.cat('QmZkdNdThE4Lt7fkQshzaQAN7i3rEFVzJuLZ4oAbF8crQ
   // })
   buffer = uint8ArrayConcat([buffer, chunk], buffer.length + chunk.length)
 }
-
-await fs.writeFile('/home/kristian/Pictures/armeret.jpeg', buffer, (e) => {
+const p = Path.join(os.homedir(), 'Pictures/armeret.jpeg')
+await fs.writeFile(p , buffer, (e) => {
   if (e) throw e;
   console.log('written')
 })
