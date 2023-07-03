@@ -36,14 +36,45 @@ for await (const chunk of hfs.cat('QmZkdNdThE4Lt7fkQshzaQAN7i3rEFVzJuLZ4oAbF8crQ
   // })
   buffer = uint8ArrayConcat([buffer, chunk], buffer.length + chunk.length)
 }
-const p = Path.join(os.homedir(), 'Pictures/armeret.jpeg')
+const p = Path.join(os.homedir(), 'Pictures', 'armeret.jpeg')
 await fs.writeFile(p , buffer, (e) => {
   if (e) throw e;
   console.log('written')
 })
 
+console.log('dfef')
 
+const cid = await hfs.addFile({
+  path: '~/Pictures/vagt.jpeg',
+  content: buffer});
 
-// const cid = await hfs.addFile({path: '~/Pictures/vagt.jpeg'});
+console.log(await hfs.stat(cid))
 
-// console.log(cid);
+console.log(cid);
+
+let b2 = new Uint8Array(0)
+for await (const chunk of hfs.cat(cid, {
+  onProgress: (evt) => {
+    //console.info('cat event', evt.type, evt.detail)
+  }
+})) {
+  //console.info('🐎')
+  //console.log(chunk);
+  //let tfc = new Unit8Array(fc.length + chunk.length)
+  //tfc.set(fc)
+  //tfc.set(chunk, fc.length);
+  //fc = tfc
+  // await fs.appendFile('~/Pictures/armeret.jpeg', chunk, (e) => {
+  //   if (e) throw e;
+  //   console.info('saved')
+  // })
+  b2 = uint8ArrayConcat([b2, chunk], b2.length + chunk.length)
+}
+
+const p2 = Path.join(os.homedir(), 'Pictures', 'armeret2.jpeg')
+await fs.writeFile(p2 , b2, (e) => {
+  if (e) throw e;
+  console.log('written')
+})
+
+//await helia.stop()
