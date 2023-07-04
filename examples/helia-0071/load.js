@@ -9,10 +9,6 @@ import Path from 'path';
 import fs from 'fs';
 
 const path = Path.join(os.homedir(), 'ipfs', 'db')
-const file = Path.join(os.homedir(), 'Pictures', 'Screenshots', 'hest.png')
-let content
-
-
 
 const blockstore = new FsBlockstore(path)
 // create a Helia node
