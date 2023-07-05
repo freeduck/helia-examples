@@ -22,7 +22,7 @@ const object1 = {
 
 const d = dagCbor(helia)
 const dj = dagJson(helia)
-const myImmutableAddress1 = await d.add(object1)
+const myImmutableAddress1 = await dj.add(object1)
 
 const object2 = {
   hest: "hjort",
