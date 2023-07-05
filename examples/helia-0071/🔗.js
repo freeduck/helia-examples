@@ -30,6 +30,8 @@ const object2 = {
 }
 
 const myImmutableAddress2 = await d.add(object2)
-const r2 = d.get(myImmutableAddress2)
+const r2 = await d.get(myImmutableAddress2)
+console.log(r2)
 const l2 = await d.get(r2.link)
+console.log(l2)
 console.log(typeof l2)
