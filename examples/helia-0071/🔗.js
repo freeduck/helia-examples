@@ -9,7 +9,7 @@ const helia = await createHelia({
 })
 
 
-const cid = CID.parse('bafkreiboy27tqryu54uaahd67stdpggrq5umbizz5kek3snysjw5giwodi')
+const cid = CID.parse('QmexeAEQKfZTsrJN5pQXqeA5gS2nUGraeJCZWKUhjh6tN4')
 
 const object1 = {
   hello: 'world',
