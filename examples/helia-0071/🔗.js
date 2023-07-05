@@ -12,7 +12,7 @@ const helia = await createHelia({
 })
 
 const hfs = unixfs(helia)
-const png = get(hfs, 'QmexeAEQKfZTsrJN5pQXqeA5gS2nUGraeJCZWKUhjh6tN4')
+const png = await get(hfs, 'QmexeAEQKfZTsrJN5pQXqeA5gS2nUGraeJCZWKUhjh6tN4')
 
 const object1 = {
   path: '~/Pictures/tab.png',
@@ -29,7 +29,7 @@ const object2 = {
   link: myImmutableAddress1
 }
 
-const myImmutableAddress2 = await dj.add(object2)
+const myImmutableAddress2 = await d.add(object2)
 const r2 = d.get(myImmutableAddress2)
-const d2 = await d.get(ro.link)
-console.log(typeof d2)
+const l2 = await d.get(r2.link)
+console.log(typeof l2)
